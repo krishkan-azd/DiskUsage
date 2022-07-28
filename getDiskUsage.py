@@ -2,6 +2,7 @@
 # importing os and sys module 
 import os
 import sys
+import json
 
 # DiskUsage function takes directory path from user CLI input and return a dictionary of files 
 # and its size in bytes
@@ -15,7 +16,7 @@ def getDiskUsage():
 
 	# Check whether Directory path exists or not
 	if os.path.exists(user_input):
-		print("Directory is : %s",os.path.basename(user_input))
+		# print("Directory is : %s" % os.path.basename(user_input))
 
 		# an empty dictionary to hold the files and the size of files in bytes
 		file_dict ={}
@@ -44,5 +45,6 @@ def getDiskUsage():
 	
 # main for function call
 if __name__ == "__main__":
-	print(getDiskUsage())
+	diskU = getDiskUsage()
+	print(json.dumps(diskU, indent=2))
 	
